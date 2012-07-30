@@ -1,0 +1,38 @@
+.container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+  width: 1000px;
+}
+
+.navbar-fixed-top .brand {
+  float: left;
+  margin-left: 0;
+}
+
+.navbar-search {
+  margin-right: 30px;
+}
+
+.span7 {
+  width: 670px;
+}
+
+.span3 {
+  width: 270px;
+}
+
+.hero-unit {
+  padding: 30px;
+  padding-top: 0;
+}
+
+.post-head-span {
+  text-align: left;
+  margin-left: 0;
+}
+
+.lead {
+  padding-top: 10px;
+}
+
+a {
+  text-decoration: none;
+}

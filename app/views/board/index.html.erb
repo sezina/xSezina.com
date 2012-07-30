@@ -1,0 +1,17 @@
+<% @posts.each do |post| %>
+  <div class="hero-unit">
+    <div class="post">
+      <div class="post-head">
+        <h2><%= link_to post.title, post %></h2>
+        <span class="pull-left">
+          <%= post.post_time.strftime('%Y-%m-%d') %>
+        </span>
+        <br />
+      </div>
+
+      <div class="lead">
+        <%= raw markdown(post.content) %>
+      </div>
+    </div>
+  </div>
+<% end %>
