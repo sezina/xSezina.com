@@ -28,6 +28,10 @@
             <li class=""><%= link_to 'Home', '/' %></li>
             <li class="divider-vertical"></li>
             <li class=""><%= link_to 'About', :controller => 'about', :action => 'index' %></li>
+            <% if session[:user_id] %>
+              <li class="divider-vertical"></li>
+              <li><%= link_to 'Admin', admin_path %></li>
+            <% end %>
           </ul>
           <form class="navbar-search pull-right" action="">
             <input class="search-query span2" type="text" placeholder="Search" />

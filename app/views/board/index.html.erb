@@ -4,7 +4,10 @@
       <div class="post-head">
         <h2><%= link_to post.title, post %></h2>
         <span class="pull-left">
-          <%= post.post_time.strftime('%Y-%m-%d') %>
+          <i class="icon-time"></i>
+          <%= post.post_time.strftime('%Y-%m-%d') %>&nbsp;&nbsp;&nbsp;
+          <i class="icon-tags"></i>&nbsp;&nbsp;&nbsp;
+          <i class="icon-comment"></i>
         </span>
         <br />
       </div>
