@@ -36,3 +36,13 @@
 a {
   text-decoration: none;
 }
+
+a:hover {
+}
+
+.hero-unit h1 {
+  font-size: 30px;
+  line-height: 36px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
