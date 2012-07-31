@@ -75,3 +75,7 @@ a:hover {
   padding-bottom: 10px;
   padding-top: 10px;
 }
+
+textarea {
+  max-width: 570px;
+}

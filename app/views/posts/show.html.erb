@@ -15,6 +15,8 @@
     </div>
   </div>
 
+  
+  <% if !@post.comments.count.zero? %>
   <div class="comments">
     <h2>Comments</h2>
     <% @post.comments.each do |comment| %>
@@ -35,6 +37,7 @@
       </div>
     <% end %>
   </div>
+  <% end %>
 
   <div class="add-comment">
     <h2>Add comment</h2>
@@ -44,7 +47,7 @@
       </div>
 
       <div class="field">
-        <%= f.text_field :email, html_options = {:class => 'span4', :placeholder => 'Please enter your email'} %>*
+        <%= f.text_field :email, html_options = {:class => 'span4', :placeholder => 'Please enter your email'} %>
       </div>
 
       <div class="field">

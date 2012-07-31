@@ -12,12 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title, html_options = {:class => "span6", :placeholder => 'Enter post title'} %>
+    <%= f.label :title %>
+    <%= f.text_field :title, html_options = {:class => "span4", :placeholder => 'Enter post title'} %>
   </div>
   <div class="field">
-    <%= f.label :content %><br />
+    <%= f.label :content %>
     <%= f.text_area :content, html_options = {:class => "span6", :placeholder => 'Write post.'} %>
+  </div>
+  <div class="field">
+    <%= f.label :tags %>
+    <%= f.text_field :tags, html_option = {:class => 'span4'}%>
   </div>
   <div class="actions">
     <%= f.submit %>

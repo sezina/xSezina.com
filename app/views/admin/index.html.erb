@@ -1,3 +1,8 @@
 <div class="hero-unit">
-  <%= button_to 'Logout', logout_path, :method => :delete, :class => 'btn btn-primary'%>
+  <%= button_to 'Posts list', posts_path, :method => :get, 
+    :class => 'btn btn-primary btn-large' %>
+  <%= button_to 'New post', new_post_path, :method => :get,
+    :class => 'btn btn-primary btn-large' %>
+  <%= button_to 'Logout', logout_path, :method => :delete,
+    :class => 'btn btn-primary btn-large' %>
 </div>
