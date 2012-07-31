@@ -29,6 +29,35 @@
   margin-left: 0;
 }
 
+.post {
+  padding-bottom: 10px;
+}
+
+.comments {
+  border-top: 1px solid #333333;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.comment {
+  padding: 14px;
+  background-color: #F5F5F5;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+  margin-bottom: 20px;
+
+}
+
+.comment-header {
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.add-comment {
+  padding-top: 10px;
+  border-top: 1px solid #333333;
+}
+
 .lead {
   padding-top: 10px;
 }

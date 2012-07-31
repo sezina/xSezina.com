@@ -1,20 +1,58 @@
 <div class="hero-unit">
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
-<div class="post">
-  <div class="post-head">
-    <h1><%= @post.title %></h1>
-    <span class="post-head-span">
-      <%= @post.post_time.strftime('%Y-%m-%d') %>
-    </span>
-    <br />
+  <div class="post">
+    <div class="post-head">
+      <h1><%= @post.title %></h1>
+      <span class="post-head-span">
+        <%= @post.post_time.strftime('%Y-%m-%d') %>
+      </span>
+      <br />
+    </div>
+
+    <div class="lead">
+      <%= raw markdown(@post.content) %>
+    </div>
   </div>
 
-  <div class="lead">
-    <%= raw markdown(@post.content) %>
+  <div class="comments">
+    <h2>Comments</h2>
+    <% @post.comments.each do |comment| %>
+      <div class="comment">
+        <div class="comment-header">
+          <i class="icon-user"></i>
+          <span>
+            <%= comment.commenter %>
+          </span>
+          <div class="pull-right">
+            <i class="icon-time"></i>
+            <span><%= comment.updated_at.strftime('%Y-%m-%d %H:%M') %></span>
+          </div>
+        </div>
+        <div class="comment-body">
+          <%= raw markdown(comment.body) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="add-comment">
+    <h2>Add comment</h2>
+    <% form_for [@post, @post.comments.build], :html => {:class => 'well'} do |f| %>
+      <div class="field">
+        <%= f.text_field :commenter, html_options = {:class => 'span4', :placeholder => 'Please enter your name.'} %>*
+      </div>
+
+      <div class="field">
+        <%= f.text_field :email, html_options = {:class => 'span4', :placeholder => 'Please enter your email'} %>*
+      </div>
+
+      <div class="field">
+        <%= f.text_area(:body, {:rows => 5, :class => 'span6', :placeholder => 'Type your comment here.'}) %>*
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
   </div>
 </div>
-</div>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>

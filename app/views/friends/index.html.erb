@@ -1,0 +1,15 @@
+<h1>Listing Friends</h1>
+<% @friends.each do |friend| %>
+  <div class="hero-unit">
+    <%= link_to friend.name, friend.url, html_options = {:class => 'pull-left'} %>
+    <span class="pull-right">
+      <%= link_to 'Edit', edit_friend_path(friend) %> | 
+      <%= link_to 'Delete', friend, :confirm => 'Are you sure?', :method => :delete %>
+    </span>
+  </div>
+<% end %>
+
+
+<br />
+
+<%= link_to 'New Friend', new_friend_path %>

@@ -7,7 +7,6 @@
   <%= stylesheet_link_tag '../bootstrap/css/docs.css'%>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
-  <%= javascript_include_tag 'jquery-1.7.2.min.js' %>
   <%= javascript_include_tag '../bootstrap/js/bootstrap.js'%>
   <%= javascript_include_tag '../bootstrap/js/bootstrap-collapse.js' %>
   <%= javascript_include_tag '../bootstrap/js/application.js' %>
@@ -47,8 +46,20 @@
         <%= yield %>
       </div>
       <div class="span3">
-        <div class="hero-unit">aaa</div>
-        <div class="hero-unit">bbbb</div>
+        <div class="hero-unit">
+          aaa
+          <div class="divider-horizontal"></div>
+        </div>
+        <div class="hero-unit">
+          <h1>Friends</h1>
+          <ul>
+            <% Friend.all.each do |friend| %>
+              <li>
+                <%= link_to friend.name, friend.url %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
 
