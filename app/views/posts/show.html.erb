@@ -4,10 +4,15 @@
   <div class="post">
     <div class="post-head">
       <h1><%= @post.title %></h1>
-      <span class="post-head-span">
-        <%= @post.post_time.strftime('%Y-%m-%d') %>
-      </span>
-      <br />
+        <span class="pull-left">
+          <i class="icon-time"></i>
+          <%= @post.post_time.strftime('%Y-%m-%d') %>&nbsp;&nbsp;&nbsp;
+          <i class="icon-tags"></i>
+          <%= @post.tags %>&nbsp;&nbsp;&nbsp;
+          <i class="icon-comment"></i>
+          <%= @post.comments.count %> comments
+        </span>
+        <br />
     </div>
 
     <div class="lead">
@@ -32,7 +37,7 @@
           </div>
         </div>
         <div class="comment-body">
-          <%= raw markdown(comment.body) %>
+          <%= sanitize markdown(comment.body) %>
         </div>
       </div>
     <% end %>

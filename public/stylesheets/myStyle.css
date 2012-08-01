@@ -24,6 +24,10 @@
   padding-top: 0;
 }
 
+.post-head {
+  border-bottom: 1px solid #333333;
+}
+
 .post-head-span {
   text-align: left;
   margin-left: 0;
