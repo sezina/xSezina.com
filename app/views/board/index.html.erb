@@ -15,7 +15,7 @@
       </div>
 
       <div class="lead">
-        <%= raw markdown(post.content) %>
+        <%= raw truncate(markdown(post.content), :length => 200) %>
       </div>
     </div>
   </div>

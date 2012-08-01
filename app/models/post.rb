@@ -5,4 +5,5 @@ class Post < ActiveRecord::Base
   validates :title, :uniqueness => true
 
   has_many :comments
+  has_and_belongs_to_many :categories
 end
