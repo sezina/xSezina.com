@@ -1,15 +1,14 @@
+<div class="hero-unit">
 <p id="notice"><%= notice %></p>
+<br />
 
-<p>
-  <b>Name:</b>
+<div class="well">
   <%= @friend.name %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%= @friend.url %>
-</p>
-
+  <span class="pull-right">
+    <%= @friend.url %>
+  </span>
+</div>
 
 <%= link_to 'Edit', edit_friend_path(@friend) %> |
 <%= link_to 'Back', friends_path %>
+</div>

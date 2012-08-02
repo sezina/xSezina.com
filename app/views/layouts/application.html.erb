@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>XsezinaCom</title>
+  <title>xSezina.com</title>
   <%= stylesheet_link_tag '../bootstrap/css/bootstrap.css'%>
   <%= stylesheet_link_tag '../bootstrap/css/bootstrap-responsive.css'%>
   <%= stylesheet_link_tag '../bootstrap/css/docs.css'%>
@@ -17,11 +17,6 @@
   <%= javascript_include_tag 'application.js' %>
   <%= javascript_include_tag '../bootstrap/js/application.js'%>
   <%= javascript_include_tag '../bootstrap/js/bootstrap-dropdown.js' %>
-  <script type="text/javascript">
-    function dropdownMenu() {
-      $('.dropdown-toggle').dropdown();
-    }
-  </script>
   <%= csrf_meta_tag %>
 </head>
 <body>
@@ -35,7 +30,7 @@
         </button>
         <%= link_to 'xSezina.com', '/', html_options = {:class => "brand"} %>
         <div class="nav-collapse collapse" style="height: 0px;">
-          <ul class="nav nav-pills">
+          <ul class="nav">
             <li class=""><%= link_to 'Home', '/' %></li>
             <li class="divider-vertical"></li>
             <li class=""><%= link_to 'About', :controller => 'about', :action => 'index' %></li>
@@ -44,11 +39,17 @@
               <li class="dropdown">
                 <%= link_to 'Admin', '#', 
                   html_options = {:class => 'dropdown-toggle', 
-                    "data-toggle" => "dropdown",
-                    "onclick" => "dropdownMenu()"} %>
+                    "data-toggle" => "dropdown"
+                    } %>
                 <ul class="dropdown-menu">
                   <li><%= link_to 'Posts List', posts_path %></li>
                   <li><%= link_to 'New Post', new_post_path %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to 'Categories List', categories_path %></li>
+                  <li><%= link_to 'New Category', new_category_path %></li>
+                  <li class="divider"></li>
+                  <li><%= link_to 'Friends List', friends_path %></li>
+                  <li><%= link_to 'New Friend', new_friend_path %></li>
                   <li class="divider"></li>
                   <li><%= link_to 'Logout', logout_path, :method => :delete %></li>
                 </ul>
@@ -56,7 +57,9 @@
             <% end %>
           </ul>
           <form class="navbar-search pull-right" action="http://www.google.com/search">
-            <input class="search-query span2" type="text" placeholder="Search" />
+            <input type="hidden" name="as_sitesearch" value="xsezina.com" />
+            <input class="search-query span2" type="text" name="as_q" placeholder="Search" />
+            <button type="submit" class="btn" style="display: none;">Search</button>
           </form>
         </div>
       </div>
@@ -70,11 +73,20 @@
       </div>
       <div class="span3">
         <div class="hero-unit">
-          aaa
-          <div class="divider-horizontal"></div>
+          <h2>Categories</h2>
+          <ul>
+            <% Category.all.each do |category| %>
+              <li>
+                <%= link_to category.title, category %>
+                <span>
+                  (<%= category.posts.count %>)
+                </span>
+              </li>
+            <% end %>
+          </ul>
         </div>
         <div class="hero-unit">
-          <h1>Friends</h1>
+          <h2>Friends</h2>
           <ul>
             <% Friend.all.each do |friend| %>
               <li>

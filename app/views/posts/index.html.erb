@@ -1,5 +1,7 @@
+<div class="hero-unit">
+  <h1>Posts List</h1>
 <% @posts.each do |post| %>
-  <div class="hero-unit">
+  <div class="well">
       <%= link_to post.title, post, html_options = {:class => 'pull-left'} %>
       <span class="pull-right">
         <%= link_to 'Edit', edit_post_path(post) %>
@@ -7,3 +9,4 @@
       </span>
   </div>
 <% end %>
+</div>

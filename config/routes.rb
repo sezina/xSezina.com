@@ -1,4 +1,6 @@
 XsezinaCom::Application.routes.draw do
+  resources :categories
+
   resources :friends
 
   get "admin" => 'admin#index'

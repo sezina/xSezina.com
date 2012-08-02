@@ -1,4 +1,4 @@
-<% @posts.each do |post| %>
+<% @category.posts.each do |post| %>
   <div class="hero-unit">
     <div class="post">
       <div class="post-head">
@@ -7,7 +7,7 @@
           <i class="icon-time"></i>
           <%= post.post_time.strftime('%Y-%m-%d') %>&nbsp;&nbsp;&nbsp;
           <i class="icon-tags"></i>
-          <%= Category.find(post.category_id).title %>&nbsp;&nbsp;&nbsp;
+          <%= post.tags %>&nbsp;&nbsp;&nbsp;
           <i class="icon-comment"></i>
           <%= post.comments.count %> comments
         </span>

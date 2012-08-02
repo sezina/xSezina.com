@@ -23,6 +23,12 @@
     <%= f.label :tags %>
     <%= f.text_field :tags, html_option = {:class => 'span4'}%>
   </div>
+
+  <div class="field">
+    <%= f.label "Category"%>
+    <%= f.select :category_id, Category.all.map{ |m| [m.title, m.id] }%>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

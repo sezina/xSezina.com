@@ -1,5 +1,4 @@
 class FriendsController < ApplicationController
-  skip_before_filter :authorize
   # GET /friends
   # GET /friends.xml
   def index
@@ -17,7 +16,7 @@ class FriendsController < ApplicationController
     @friend = Friend.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { redirect_to friends_url }# show.html.erb
       format.xml  { render :xml => @friend }
     end
   end

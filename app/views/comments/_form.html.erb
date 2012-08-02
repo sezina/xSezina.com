@@ -1,0 +1,17 @@
+<% form_for [@post, @post.comments.build], :html => {:class => 'well'} do |f| %>
+  <div class="field">
+    <%= f.text_field :commenter, html_options = {:class => 'span4', :placeholder => 'Please enter your name.'} %>*
+  </div>
+
+  <div class="field">
+    <%= f.text_field :email, html_options = {:class => 'span4', :placeholder => 'Please enter your email'} %>
+  </div>
+
+  <div class="field">
+    <%= f.text_area(:body, {:rows => 5, :class => 'span6', :placeholder => 'Type your comment here.'}) %>*
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

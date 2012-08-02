@@ -1,0 +1,16 @@
+<div class="hero-unit">
+  <% if notice %>
+    <p id="notice"><%= notice %></p>
+  <% end %>
+  <h1>Listing categories</h1>
+  
+  <% @categories.each do |category| %>
+    <div class="well">
+      <h3 class="pull-left"><%= category.title %></h3>
+      <span class="pull-right">
+        <%= link_to 'Edit', edit_category_path(category) %>
+        <%= link_to 'Delete', category, :confirm => 'Are you sure?', :method => :delete %>
+      </span>
+    </div>
+  <% end %>
+</div>
