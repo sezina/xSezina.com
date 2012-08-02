@@ -1,39 +1,51 @@
 <div class="hero-unit">
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 
-<div class="post">
-  <div class="post-head">
-    <h1><%= @post.title %></h1>
-    <span class="post-head-span">
-      <%= @post.post_time.strftime('%Y-%m-%d') %>
-    </span>
-    <br />
+  <div class="post">
+    <div class="post-head">
+      <h1><%= @post.title %></h1>
+        <span class="pull-left">
+          <i class="icon-time"></i>
+          <%= @post.post_time.strftime('%Y-%m-%d') %>&nbsp;&nbsp;&nbsp;
+          <i class="icon-tags"></i>
+          <%= Category.find(@post.category_id).title %>&nbsp;&nbsp;&nbsp;
+          <i class="icon-comment"></i>
+          <%= @post.comments.count %> comments
+        </span>
+        <br />
+    </div>
+
+    <div class="lead">
+      <%= raw markdown(@post.content) %>
+    </div>
   </div>
 
-  <div class="lead">
-    <%= raw markdown(@post.content) %>
+  
+  <% if !@post.comments.count.zero? %>
+  <div class="comments">
+    <h2>Comments</h2>
+    <% @post.comments.each do |comment| %>
+      <div class="comment">
+        <div class="comment-header">
+          <i class="icon-user"></i>
+          <span>
+            <%= comment.commenter %>
+          </span>
+          <div class="pull-right">
+            <i class="icon-time"></i>
+            <span><%= comment.updated_at.strftime('%Y-%m-%d %H:%M') %></span>
+          </div>
+        </div>
+        <div class="comment-body">
+          <%= sanitize markdown(comment.body) %>
+        </div>
+      </div>
+    <% end %>
   </div>
-</div>
-</div>
-<div class="hero-unit">
-  <h2>Add a comment:</h2>
-  <% form_for [@post, @post.comments.build], html_options = {:class => 'well'} do |f| %>
-    <div class="field">
-      <%= f.label :commenter %>
-      <%= f.text_field :commenter, html_options = {:class => 'span4'} %>
-    </div>
-
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.text_field :email, html_options = {:class => 'span4'} %>
-    </div>
-
-    <div class="field">
-      <%= f.label :body %>
-      <%= f.text_area :body,  html_options = {:rows => 5, :class => 'span4'} %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
   <% end %>
+
+  <div class="add-comment">
+    <h2>Add comment</h2>
+    <%= render "comments/form"%>
+  </div>
 </div>

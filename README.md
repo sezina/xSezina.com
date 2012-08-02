@@ -1,4 +1,4 @@
-My blog in [xsezina.com](xsezina.com).
+My new blog.
 
 ---
 
