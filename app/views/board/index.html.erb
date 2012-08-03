@@ -6,7 +6,7 @@
         <span class="pull-left">
           <i class="icon-time"></i>
           <%= post.post_time.strftime('%Y-%m-%d') %>&nbsp;&nbsp;&nbsp;
-          <i class="icon-tags"></i>
+          <i class="icon-tag"></i>
           <%= Category.find(post.category_id).title %>&nbsp;&nbsp;&nbsp;
           <i class="icon-comment"></i>
           <%= post.comments.count %> comments
