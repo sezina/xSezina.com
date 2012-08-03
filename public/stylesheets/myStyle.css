@@ -20,6 +20,7 @@
 }
 
 .hero-unit {
+  min-height: 30px;
   padding: 30px;
   padding-top: 0;
 }
