@@ -1,0 +1,22 @@
+<% @results.each do |result| %>
+  <div class="hero-unit">
+    <div class="post">
+      <div class="post-head">
+        <h1><%= link_to result.title, result %></h1>
+        <span class="pull-left">
+          <i class="icon-time"></i>
+          <%= result.post_time.strftime('%Y-%m-%d') %>&nbsp;&nbsp;&nbsp;
+          <i class="icon-tag"></i>
+          <%= Category.find(result.category_id).title %>&nbsp;&nbsp;&nbsp;
+          <i class="icon-comment"></i>
+          <%= result.comments.count %> comments
+        </span>
+        <br />
+      </div>
+
+      <div class="lead">
+        <%= raw markdown(result.content) %>
+      </div>
+    </div>
+  </div>
+<% end %>

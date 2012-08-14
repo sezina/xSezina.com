@@ -1,4 +1,7 @@
 XsezinaCom::Application.routes.draw do
+ # get "search/index"
+  resources :search
+
   resources :categories
 
   resources :friends
