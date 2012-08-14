@@ -47,9 +47,10 @@
 .comment {
   padding: 14px;
   background-color: #F5F5F5;
+  box-shadow: 2px 2px 3px #AAAAAA;
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 4px 4px 4px 4px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+  /*box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;*/
   margin-bottom: 20px;
 
 }
