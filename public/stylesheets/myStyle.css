@@ -85,3 +85,8 @@ a:hover {
 textarea {
   max-width: 570px;
 }
+
+.row .span3 {
+  float: right;
+  margin-right: 30px;
+}
